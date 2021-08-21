@@ -1,28 +1,34 @@
-<h1> Article listing page</h1>
+<div id="page-content">
+<h1 class="text-center mt-4"> Article listing</h1>
 
-<table>
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th colspan="3">Actions</th>
-        </tr>
-    </thead>
+<div class="container">
+<% @articles.each do |ar| %>
+<div class="row justify-content-md-center">
+    <div class="col-8 mt-4">
+    <div class="card text-center shadow mb-5 bg-white rounded">
+        <div class="card-header font-italic">
+        by Shubham Mongia
+        </div>
+        <div class="card-body">
+        <h5 class="card-title"><%= link_to ar.title, article_path(ar), class: "text-success" %></h5>
+        <p class="card-text"><%= truncate(ar.description, length: 50) %></p>
 
-    <tbody>
-        <% @articles.each do |ar| %>
-            <tr>
-                <td><%= ar.title %></td>
-                <td><%= ar.description %></td>
-                <td><%= link_to "Show", article_path(ar) %></td>
-                <td><%= link_to "Edit", edit_article_path(ar) %></td>    
-                <td><%= link_to "Delete", article_path(ar), method: :delete, data: {confirm:"Are you sure?"}  %></td>
-                            
+        <%= link_to 'View', article_path(ar), class:"btn btn-outline-success" %>
+        <%= link_to 'Edit', edit_article_path(ar), class: "btn btn-outline-info" %>
+        <%= link_to 'Delete', article_path(ar), method: :delete, data: { confirm:"Are you sure?"} , class: "btn btn-outline-danger" %>
+    </div>
 
-            </tr>
-        <% end %>
-    </tbody>
-</table>
+        <div class="card-footer text-muted">
+        <small>Created ago <%= time_ago_in_words(ar.created_at) %>,
+            edited ago <%= time_ago_in_words(ar.updated_at) %> </small>
+        </div>
+    </div>
+</div>
+</div>
+<% end %> 
+</div>
 <p>
     <%= link_to "Create new article", new_article_path %>
 </p>
+
+</div>

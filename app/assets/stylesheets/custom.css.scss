@@ -1,0 +1,50 @@
+@import 'bootstrap/dist/css/bootstrap';
+
+.navbar{
+    background-color: black !important;
+}
+
+.nav-link{
+    color: white !important;
+}
+
+#logo{
+    float: left;
+    color: #fff;
+    font-size: 1cm;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+
+#logo:hover{
+    color: #fff;
+    text-decoration: none;
+}
+
+.jumbotron{
+    background-color: rgb(20, 4, 4);
+    border-radius: 6px !important;
+    background-image: asset-url('tech.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+}
+
+#home-container{
+    margin-top: 25px ;
+}
+
+footer {
+    position: fixed;
+    height: 100px;
+    bottom: 0;
+    width: 100%;
+}
+
+#page-content {
+    flex: 1 0 auto;
+    background-color: lightgrey !important;
+  }
+  
