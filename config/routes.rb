@@ -4,5 +4,8 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'about', to: 'about#page'
   resources :articles 
-  # , only: [:new, :show, :index, :create, :edit, :update, :destroy]
+  get 'signup', to:"users#new"
+  resources :users , except: [:new]
+  # post 'users', to: 'users#create'
+    # , only: [:new, :show, :index, :create, :edit, :update, :destroy]
 end
